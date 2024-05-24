@@ -6,7 +6,7 @@ document.querySelector("#add-family-members").onclick = () => {
     if (!validateNumberOfFamilyMembers()) {
         addFamilyMembers();
         document.querySelector("#number-of-family-members").className = ""
-        document.querySelector("#add-family-members").className = "oculto"
+        document.querySelector("#add-family-members").setAttribute("disabled", "")
         document.querySelector("#calculate-button").className = ""
         document.querySelector("#reset-button").className = ""
     } else {
@@ -98,7 +98,7 @@ $resetButton.onclick = () => {
     hideResults();
     clearAddInput();
     document.querySelector("#calculate-button").className = "oculto"
-    document.querySelector("#add-family-members").className = ""
+    document.querySelector("#add-family-members").removeAttribute("disabled")
     $resetButton.className = "oculto"
 }
 
