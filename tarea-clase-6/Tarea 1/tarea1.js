@@ -42,7 +42,6 @@ $calculateButton.onclick = () => {
         obtainAverageFamilyAge();
         showResults();
     }
-
     return false;
 }
 
@@ -91,17 +90,12 @@ function showResults() {
 
 const $resetButton = document.querySelector("#reset-button")
 $resetButton.onclick = () => {
-    showAddButton();
     removeFamilyMemebers();
     resetValues();
     hideResults();
     clearAddInput();
     document.querySelector("#calculate-reset-buttons").className = "oculto"
     document.querySelector("#add-family-members").removeAttribute("disabled")
-}
-
-function showAddButton() {
-    document.querySelector("#add-family-members").className = ""
 }
 
 function removeFamilyMemebers() {
