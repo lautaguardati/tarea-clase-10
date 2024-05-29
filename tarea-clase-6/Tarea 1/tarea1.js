@@ -9,8 +9,10 @@ document.querySelector("#add-family-members").onclick = () => {
         document.querySelector("#calculate-reset-buttons").className = ""
     } else {
         document.querySelector("#number-of-family-members").className = "form-control is-invalid"
+        document.querySelector("#number-of-family-members-input-feedback").textContent = validateNumberOfFamilyMembers();
     }
 }
+
 
 function addFamilyMembers(numberOfFamilyMembers) {
     numberOfFamilyMembers = Number(document.querySelector("#number-of-family-members").value);
