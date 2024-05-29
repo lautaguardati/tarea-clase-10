@@ -2,7 +2,6 @@ let errores;
 const $form = document.querySelector("form")
 
 document.querySelector("#add-family-members").onclick = () => {
-
     if (!validateNumberOfFamilyMembers()) {
         addFamilyMembers();
         document.querySelector("#number-of-family-members").className = "form-control is-valid"
@@ -17,14 +16,17 @@ function addFamilyMembers(numberOfFamilyMembers) {
     numberOfFamilyMembers = Number(document.querySelector("#number-of-family-members").value);
     for (i = 0; i < numberOfFamilyMembers; i++) {
         let $divNode = document.createElement("div");
-        $divNode.className = "member"
+        $divNode.className = "col"
 
         const $newLabel = document.createElement("label");
         $newLabel.textContent = "Ingrese la edad del familiar:";
+        $newLabel.setAttribute("for", "age-of-family-member" + "-" + [i])
 
         const $newInput = document.createElement("input");
         $newInput.name = "age-of-family-member" + "-" + [i]
+        $newInput.id = "age-of-family-member" + "-" + [i]
         $newInput.type = "number";
+        $newInput.className = "form-control"
 
         $newLabel.appendChild($newInput);
         $divNode.appendChild($newLabel);
@@ -48,7 +50,7 @@ $calculateButton.onclick = () => {
 let numbers = [];
 function createNumbers($ageOfFamilyMembers) {
     numbers = [];
-    $ageOfFamilyMembers = document.querySelectorAll(".member input");
+    $ageOfFamilyMembers = document.querySelectorAll(".col input");
     for (i = 0; i < $ageOfFamilyMembers.length; i++) {
         numbers.push(parseInt($ageOfFamilyMembers[i].value));
     }
@@ -83,7 +85,6 @@ function obtainAverageFamilyAge(total) {
     document.querySelector("#average-family-age").textContent = total + " años.";
 }
 
-
 function showResults() {
     document.querySelector("#results").className = ""
 }
@@ -99,7 +100,7 @@ $resetButton.onclick = () => {
 }
 
 function removeFamilyMemebers() {
-    let $divNode = document.querySelectorAll(".member");
+    let $divNode = document.querySelectorAll(".col");
     for (i = 0; i < $divNode.length; i++) {
         $divNode[i].remove();
     }

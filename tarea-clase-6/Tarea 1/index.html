@@ -10,27 +10,31 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
-<header>
-    Familia
-</header>
+
+<h4 class="display-4">
+    <div class="text-center">
+        Edad Familiar
+    </div>
+</h4>
 
 <body>
     <form>
-        <label for="number-of-family-members">Ingrese cuantas personas hay en el grupo familiar:</label>
-        <input type="number" class="" id="number-of-family-members" />
-        <button type="button" id="add-family-members">Agregar familiares</button> <br>
-        <p id="family-members">
-        </p>
-        <div>
-            <button type="submit" id="calculate-button" class="oculto">Calcular</button>
-            <button type="reset" id="reset-button" class="oculto">Reiniciar</button>
+        <div class="form-floating">
+            <input type="number" class="form-control form-control-sm" id="number-of-family-members" placeholder=" " />
+            <label for="number-of-family-members">Ingrese cuantas personas hay en el grupo familiar</label>
+            <button type="button" id="add-family-members" class="btn btn-primary">Agregar familiares</button>
+        </div>
+
+        <div id="family-members" class="row row-cols-auto">
+        </div>
+
+        <div id="calculate-reset-buttons" class="oculto">
+            <button type="submit" id="calculate-button" class="btn btn-primary">Calcular</button>
+            <button type="reset" id="reset-button" class="btn btn-primary">Reiniciar</button>
         </div>
 
     </form>
-    <p>
-        <button type="button" id="calculate-button" class="oculto">Calcular</button>
-        <button type="button" id="reset-button" class="oculto">Reiniciar</button>
-    </p>
+
     <p id="results" class="oculto">
         La edad de la perona mayor es: <em id="age-oldest-family-member"></em> <br>
         La edad de la persona menor es: <em id="age-youngest-family-member"></em> <br>
@@ -40,5 +44,4 @@
     <script src="tarea1.js"></script>
     <script src="pruebas.js"></script>
 </body>
-
 </html>
