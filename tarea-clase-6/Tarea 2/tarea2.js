@@ -24,12 +24,13 @@ function addMember() {
 
     const $wrongInputFeedback = document.createElement("div")
     $wrongInputFeedback.className = "invalid-feedback"
+    $wrongInputFeedback.id = "input-of-member-" + memberNumber
 
     document.querySelector("form").appendChild($divNode);
     $divNode.appendChild($newLabel);
     $divNode.appendChild($divForInlineForm);
     $divForInlineForm.appendChild($newInput);
-    $newInput.appendChild($wrongInputFeedback)
+    $divForInlineForm.appendChild($wrongInputFeedback)
 
     memberNumber++;
 }
@@ -133,11 +134,14 @@ function validateMemberSalary(salary) {
 
 function showErrors() {
     let keys = Object.keys(errorSalaryInputs)
+    i = 0;
     keys.forEach(function (key) {
         const error = errorSalaryInputs[key]
         if (error) {
             $form[key].className = "form-control form-control-sm is-invalid"
+            document.querySelector("#input-of-member-" + i).textContent = errorSalaryInputs[key]
         } else
             $form[key].className = "form-control form-control-sm is-valid"
+        i++
     })
 }
