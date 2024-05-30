@@ -14,17 +14,18 @@
 <h1 class="h1">
     <div class="text-center">
         Salario Familiar
-
     </div>
 </h1>
 
 <body>
     <form>
-        <button type="button" id="add-familiar">Agregar familiar</button>
-        <button type="button" id="remove-familiar">Quitar familiar</button>
-        <button type="submit" id="calculate-button">Calcular</button>
+        <div class="btn-group">
+            <button class="btn btn-success btn-lg" type="button" id="add-familiar">Agregar familiar</button>
+            <button class="btn btn-success btn-lg" type="button" id="remove-familiar">Quitar familiar</button>
+            <button class="btn btn-success btn-lg" type="submit" id="calculate-button">Calcular</button>
+        </div>
     </form>
-    
+
     <p id="results" class="oculto">
         El mayor salario anual es: <strong id="highest-annual-salary"></strong> <br>
         El menor salario anual es: <strong id="lowest-annual-salary"></strong> <br>

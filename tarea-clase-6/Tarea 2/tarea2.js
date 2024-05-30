@@ -11,7 +11,7 @@ function addMember() {
 
     const $newLabel = document.createElement("label");
     $newLabel.textContent = "Ingrese salario anual del familiar";
-    $newLabel.className = "col-sm-3 col-form-label"
+    $newLabel.className = "col-sm-2 col-form-label"
     $newLabel.setAttribute("for", "salary-member-" + memberNumber)
 
     const $divForInlineForm = document.createElement("div")
