@@ -124,7 +124,9 @@ function manageErrorsInSalary() {
 }
 
 function validateMemberSalary(salary) {
-    if (isNaN(salary) || salary === "" || salary === 0) {
+    if (salary === 0) {
+        return "Este campo no puede ser 0"
+    } else if (isNaN(salary) || salary === "") {
         return "El campo de salario del familiar no puede estar vacío"
     } else if (!/^[0-9]+$/.test(salary)) {
         return "El campo de salario del familiar solo acepta números"
