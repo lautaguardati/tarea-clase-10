@@ -7,17 +7,30 @@ let memberNumber = 0;
 function addMember() {
     const $divNode = document.createElement("div");
     $divNode.className = "member";
+    $divNode.className = "row mb-3"
 
     const $newLabel = document.createElement("label");
-    $newLabel.textContent = "Ingrese salario anual del familiar:";
+    $newLabel.textContent = "Ingrese salario anual del familiar";
+    $newLabel.className = "col-sm-3 col-form-label"
+    $newLabel.setAttribute("for", "salary-member-" + memberNumber)
+
+    const $divForInlineForm = document.createElement("div")
+    $divForInlineForm.className = "col-sm-auto"
 
     const $newInput = document.createElement("input");
     $newInput.type = "number";
     $newInput.name = "salary-member-" + memberNumber
+    $newInput.className = "form-control form-control-sm";
+
+    const $wrongInputFeedback = document.createElement("div")
+    $wrongInputFeedback.className = "invalid-feedback"
 
     document.querySelector("form").appendChild($divNode);
     $divNode.appendChild($newLabel);
-    $newLabel.appendChild($newInput);
+    $divNode.appendChild($divForInlineForm);
+    $divForInlineForm.appendChild($newInput);
+    $newInput.appendChild($wrongInputFeedback)
+
     memberNumber++;
 }
 
@@ -123,8 +136,8 @@ function showErrors() {
     keys.forEach(function (key) {
         const error = errorSalaryInputs[key]
         if (error) {
-            $form[key].className = "error"
+            $form[key].className = "form-control form-control-sm is-invalid"
         } else
-            $form[key].className = ""
+            $form[key].className = "form-control form-control-sm is-valid"
     })
 }
