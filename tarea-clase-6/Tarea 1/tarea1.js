@@ -19,6 +19,7 @@ function addFamilyMembers(numberOfFamilyMembers) {
     for (i = 0; i < numberOfFamilyMembers; i++) {
         let $divNode = document.createElement("div");
         $divNode.className = "col"
+        $divNode.id = "node-of-age-of-memeber-" + i
 
         const $newLabel = document.createElement("label");
         $newLabel.textContent = "Ingrese la edad del familiar:";
@@ -30,8 +31,13 @@ function addFamilyMembers(numberOfFamilyMembers) {
         $newInput.type = "number";
         $newInput.className = "form-control"
 
-        $newLabel.appendChild($newInput);
+        const $newInvalidFeedback = document.createElement("div");
+        $newInvalidFeedback.className = "invalid-feedback";
+
         $divNode.appendChild($newLabel);
+        $divNode.appendChild($newInput);
+        $divNode.appendChild($newInvalidFeedback)
+
         document.querySelector("#family-members").appendChild($divNode)
     }
 }
@@ -116,9 +122,6 @@ function resetValues() {
 }
 
 function hideResults() {
-    document.querySelector("#age-oldest-family-member").textContent = "";
-    document.querySelector("#age-youngest-family-member").textContent = "";
-    document.querySelector("#average-family-age").textContent = "";
     document.querySelector("#results").className = "oculto"
 }
 
@@ -162,10 +165,14 @@ function validateAgeOfFamilyMembers($ageOfFamilyMembers) {
 
 function manageErrors() {
     const keys = Object.keys(ageErrors)
+    i = 0;
     keys.forEach((key) => {
         const error = ageErrors[key]
-        if (error){
+        const $divNode = document.querySelector("#node-of-age-of-memeber-" + i)
+        i++
+        if (error) {
             $form[key].className = "form-control is-invalid"
+            $divNode.querySelector("div").textContent = ageErrors[key]
         } else {
             $form[key].className = "form-control is-valid"
         }
