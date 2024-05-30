@@ -13,7 +13,6 @@ document.querySelector("#add-family-members").onclick = () => {
     }
 }
 
-
 function addFamilyMembers(numberOfFamilyMembers) {
     numberOfFamilyMembers = Number(document.querySelector("#number-of-family-members").value);
     for (i = 0; i < numberOfFamilyMembers; i++) {
@@ -97,6 +96,7 @@ function showResults() {
     document.querySelector("#results").className = ""
 }
 
+
 const $resetButton = document.querySelector("#reset-button")
 $resetButton.onclick = () => {
     removeFamilyMemebers();
@@ -133,10 +133,10 @@ function clearAddInput() {
 function validateNumberOfFamilyMembers(numberOfFamilyMembers) {
     numberOfFamilyMembers = Number(document.querySelector("#number-of-family-members").value)
     if (numberOfFamilyMembers == 0) {
-        return "El campo cantidad de familiares no puede estar vacío"
+        return "Este campo no puede estar vacío"
     }
     if (!/^[0-9]{1,2}$/.test(numberOfFamilyMembers)) {
-        return "El campo cantidad de familiares solo puede tener números entre 1 y 99"
+        return "Este campo solo puede tener números entre 1 y 99"
     }
     return ""
 }
@@ -156,7 +156,10 @@ function errorOfAgeOfFamilyMembers() {
 }
 
 function validateAgeOfFamilyMembers($ageOfFamilyMembers) {
-    if (isNaN($ageOfFamilyMembers) || $ageOfFamilyMembers === "" || $ageOfFamilyMembers === 0) {
+    if ($ageOfFamilyMembers === 0) {
+        return "Este campo no puede ser 0"
+    }
+    if (isNaN($ageOfFamilyMembers) || $ageOfFamilyMembers === "") {
         return "Este campo no puede estar vacío"
     } else if ($ageOfFamilyMembers >= 150) {
         return "Este campo no puede ser mayor a 150"
