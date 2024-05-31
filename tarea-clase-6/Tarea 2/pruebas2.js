@@ -1,5 +1,9 @@
 function testvalidateMemberSalary(){
     console.assert(
+        validateMemberSalary("0") === "Este campo no puede ser 0",
+        "ValidateMemberSalary no validó que el campo esté vacío"
+    )
+    console.assert(
         validateMemberSalary("") === "El campo de salario del familiar no puede estar vacío",
         "ValidateMemberSalary no validó que el campo esté vacío"
     )

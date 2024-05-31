@@ -5,3 +5,7 @@
 .oculto {
     display: none;
 }
+
+body {
+    background-color: rgb(174, 231, 241);
+}
