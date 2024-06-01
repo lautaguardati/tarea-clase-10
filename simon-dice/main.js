@@ -17,3 +17,4 @@ function actualizarRonda() {
     ronda++
     document.querySelector("#ronda").textContent = ronda
 }
+
