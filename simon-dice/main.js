@@ -9,6 +9,8 @@ document.querySelector("#boton-empezar").onclick = empezarJuego;
 function empezarJuego() {
     actualizarRonda(ronda)
     desactivarBotonEmpezarJuego()
+    actualizarRonda()
+    bloquearInputUsuario()
 }
 
 
@@ -21,4 +23,13 @@ function actualizarRonda() {
     ronda++
     document.querySelector("#ronda").textContent = ronda
 }
+
+
+function bloquearInputUsuario() {
+    const $cuadros = document.querySelectorAll(".cuadro")
+    $cuadros.forEach(($cuadro) => {
+        $cuadro.onclick = () => { }
+    })
+}
+
 
