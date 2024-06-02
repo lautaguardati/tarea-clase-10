@@ -20,7 +20,3 @@
     opacity: 0.5;
     transition: opacity 500ms;
 }
-
-.cuadro:hover {
-    opacity: 0.6;
-}
