@@ -35,7 +35,7 @@ function bloquearInputUsuario() {
 
 function manejarTurnoMaquina() {
     actualizarRonda();
-    actualizarEstado("Turno de la maquina")
+    actualizarEstado("Turno de la máquina.")
     obtenerSecuenciaDeMaquina()
     manejarSecuenciaMaquina()
 }
@@ -104,7 +104,7 @@ function manejarTurnoJugador(e) {
     resaltarCuadros($cuadro)
     secuenciaUsuario.push($cuadro);
 
-    const $cuadroMaquina = secuenciaMaquina[secuenciaUsuario.length - 1] // [a,b,c,d]
+    const $cuadroMaquina = secuenciaMaquina[secuenciaUsuario.length - 1]
 
     if ($cuadro.id != $cuadroMaquina.id) {
         perder();
