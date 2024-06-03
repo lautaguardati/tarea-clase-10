@@ -37,6 +37,7 @@ function manejarTurnoMaquina() {
     actualizarRonda();
     actualizarEstado("Turno de la maquina")
     obtenerSecuenciaDeMaquina()
+    manejarSecuenciaMaquina()
 }
 
 
@@ -61,6 +62,40 @@ function obtenerSecuenciaDeMaquina() {
         secuenciaMaquina.push(document.querySelector("#cuadro-" + numero))
     })
 
+}
+
+
+function manejarSecuenciaMaquina() {
+    let index = 1;
+    secuenciaMaquina.forEach(($cuadro) => {
+        let RETRASO_MS = 1000 * index
+        setTimeout(() => {
+            resaltarCuadros($cuadro)
+        }, RETRASO_MS)
+
+        index++;
+    })
+
+    const RETRASO_TURNO_JUGADOR = 1000 * (secuenciaMaquina.length + 1)
+    setTimeout(() => {
+        activarInputJugador()
+    }, RETRASO_TURNO_JUGADOR)
+}
+
+
+function resaltarCuadros($cuadro) {
+    $cuadro.style.opacity = 1;
+    setTimeout(() => {
+        $cuadro.style.opacity = 0.5;
+    }, 500);
+}
+
+
+function activarInputJugador() {
+    actualizarEstado("¡Es tu turno!")
+    document.querySelectorAll(".cuadro").forEach(($cuadro) => {
+        $cuadro.onclick = manejarTurnoJugador;
+    })
 }
 
 
