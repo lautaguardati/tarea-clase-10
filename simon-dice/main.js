@@ -36,6 +36,7 @@ function bloquearInputUsuario() {
 function manejarTurnoMaquina() {
     actualizarRonda();
     actualizarEstado("Turno de la maquina")
+    obtenerSecuenciaDeMaquina()
 }
 
 
@@ -50,6 +51,16 @@ function actualizarEstado(estado, error = false) {
         $estado.classList.remove("alert-danger");
         $estado.classList.add("alert-primary")
     }
+}
+
+
+function obtenerSecuenciaDeMaquina() {
+    const numerosAleatorios = []
+    numerosAleatorios.push(Math.ceil(Math.random() * 4))
+    numerosAleatorios.forEach((numero) => {
+        secuenciaMaquina.push(document.querySelector("#cuadro-" + numero))
+    })
+
 }
 
 
