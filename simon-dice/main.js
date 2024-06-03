@@ -99,3 +99,25 @@ function activarInputJugador() {
 }
 
 
+function manejarTurnoJugador(e) {
+    const $cuadro = e.target
+    resaltarCuadros($cuadro)
+    secuenciaUsuario.push($cuadro);
+
+    const $cuadroMaquina = secuenciaMaquina[secuenciaUsuario.length - 1] // [a,b,c,d]
+
+    if ($cuadro.id != $cuadroMaquina.id) {
+        perder();
+        return
+    }
+    if (secuenciaUsuario.length === secuenciaMaquina.length) {
+        setTimeout(() => {
+            manejarTurnoMaquina();
+        }, 1000)
+
+        secuenciaUsuario = []
+        bloquearInputUsuario();
+    }
+}
+
+
