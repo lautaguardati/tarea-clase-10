@@ -121,3 +121,13 @@ function manejarTurnoJugador(e) {
 }
 
 
+function perder() {
+    secuenciaUsuario = []
+    secuenciaMaquina = []
+
+    actualizarEstado("Hesitation is Defeat", true)
+    setTimeout(()=>{
+        actualizarEstado('¡Perdiste! Aprieta "Empezar" para empezar a jugar de nuevo.', true)
+    }, 1000)
+    document.querySelector("#boton-empezar").removeAttribute("disabled")
+}
