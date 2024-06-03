@@ -61,19 +61,15 @@ function obtenerSecuenciaDeMaquina() {
     numerosAleatorios.forEach((numero) => {
         secuenciaMaquina.push(document.querySelector("#cuadro-" + numero))
     })
-
 }
 
 
 function manejarSecuenciaMaquina() {
-    let index = 1;
-    secuenciaMaquina.forEach(($cuadro) => {
-        let RETRASO_MS = 1000 * index
+    secuenciaMaquina.forEach(($cuadro, index) => {
+        const RETRASO_MS = 1000 * (index + 1)
         setTimeout(() => {
             resaltarCuadros($cuadro)
         }, RETRASO_MS)
-
-        index++;
     })
 
     const RETRASO_TURNO_JUGADOR = 1000 * (secuenciaMaquina.length + 1)
@@ -126,7 +122,7 @@ function perder() {
     secuenciaMaquina = []
 
     actualizarEstado("Hesitation is Defeat", true)
-    setTimeout(()=>{
+    setTimeout(() => {
         actualizarEstado('¡Perdiste! Aprieta "Empezar" para empezar a jugar de nuevo.', true)
     }, 1000)
     document.querySelector("#boton-empezar").removeAttribute("disabled")
