@@ -1,16 +1,16 @@
 
-const secuenciaUsuario = []
-const secuenciaMaquina = []
+let secuenciaUsuario = []
+let secuenciaMaquina = []
 let ronda = 0;
 
 
 document.querySelector("#boton-empezar").onclick = empezarJuego;
 
+
 function empezarJuego() {
-    actualizarRonda(ronda)
+    ronda = 0;
     desactivarBotonEmpezarJuego()
-    actualizarRonda()
-    bloquearInputUsuario()
+    manejarTurnoMaquina()
 }
 
 
@@ -30,6 +30,26 @@ function bloquearInputUsuario() {
     $cuadros.forEach(($cuadro) => {
         $cuadro.onclick = () => { }
     })
+}
+
+
+function manejarTurnoMaquina() {
+    actualizarRonda();
+    actualizarEstado("Turno de la maquina")
+}
+
+
+function actualizarEstado(estado, error = false) {
+    const $estado = document.querySelector("#estado")
+    $estado.textContent = estado
+
+    if (error) {
+        $estado.classList.remove("alert-primary");
+        $estado.classList.add("alert-danger");
+    } else {
+        $estado.classList.remove("alert-danger");
+        $estado.classList.add("alert-primary")
+    }
 }
 
 
